@@ -27,6 +27,7 @@ class ProcessTheClient(threading.Thread):
                         
                         jam_sekarang = now.strftime("%H:%M:%S")
                         response = f"JAM {jam_sekarang}\r\n"
+                        logging.info(f"Client {self.address} sent TIME.")
                         logging.info(f"Sending response: {response.strip()} to {self.address}")
                         self.connection.sendall(response.encode('utf-8'))
                     elif data == "QUIT":
